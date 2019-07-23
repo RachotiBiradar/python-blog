@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+
+
+
+  {# get_flashed_messages() is auto sent to the template with the flash() call #}
+      {% for mess in get_flashed_messages()  %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{mess}}
+        </div>
+      {% endfor %}
+
+  <form class="form-group" method="POST">
+
+
+  {{form.hidden_tag()}}
+  <div class="form-group">
+  {{form.email.label(class="form-control-label")}}{{form.email(class="form-control form-control-lg")}}<br>
+
+  </div>
+  <div class="form-group">
+  {{form.username.label(class="form-control-label")}}{{form.username(class="form-control form-control-lg")}}<br>
+</div>
+<div class="form-group">
+  {{form.password.label(class="form-control-label")}}{{form.password(class="form-control form-control-lg")}}<br>
+</div >
+
+  <div class="form-group">
+  {{form.pass_confirm.label(class="form-control-label")}}
+  {{form.pass_confirm(class="form-control form-control-lg")}}<br>
+</div>
+<div class="form-group">
+  {{form.submit(class="btn btn-outline-info")}}
+</div>
+
+</form>
+</div>
+{% endblock %}
